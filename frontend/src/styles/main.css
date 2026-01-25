@@ -1,0 +1,130 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: dark;
+    direction: rtl;
+  }
+
+  body {
+    font-family: 'Tajawal', 'Noto Sans Arabic', sans-serif;
+  }
+
+  /* تخصيص شريط التمرير */
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: rgba(15, 23, 42, 0.8);
+    border-radius: 5px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: linear-gradient(to bottom, #CE1126, #007A3D);
+    border-radius: 5px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(to bottom, #007A3D, #06b6d4);
+  }
+}
+
+@layer components {
+  .iraq-gradient {
+    @apply bg-gradient-to-r from-iraq-red via-iraq-white to-iraq-green;
+  }
+  
+  .space-gradient {
+    @apply bg-gradient-to-br from-gray-900 via-space-blue to-gray-950;
+  }
+  
+  .satellite-card {
+    @apply bg-gradient-to-br from-gray-800/50 to-gray-900/50 backdrop-blur-lg border border-cyan-500/20 rounded-2xl p-6 hover:border-cyan-500/40 transition-all duration-300;
+  }
+  
+  .iraq-border {
+    @apply border-2 border-dashed;
+    border-image: linear-gradient(to right, #CE1126, #FFFFFF, #007A3D) 1;
+  }
+  
+  .developer-badge {
+    @apply px-4 py-2 bg-gradient-to-r from-iraq-red/20 to-cyan-500/20 rounded-xl border border-cyan-500/30 text-cyan-300 font-bold;
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    @apply bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent;
+  }
+  
+  .iraq-text-gradient {
+    @apply bg-gradient-to-r from-iraq-red via-iraq-green to-cyan-400 bg-clip-text text-transparent;
+  }
+  
+  .rtl-dir {
+    direction: rtl;
+  }
+  
+  .ltr-dir {
+    direction: ltr;
+  }
+}
+
+/* تخصيصات خاصة بالعراق */
+.iraq-flag-bg {
+  background: linear-gradient(
+    180deg,
+    #CE1126 0%,
+    #CE1126 33%,
+    #FFFFFF 33%,
+    #FFFFFF 66%,
+    #000000 66%,
+    #000000 100%
+  );
+}
+
+.satellite-orbit {
+  animation: orbit 20s linear infinite;
+}
+
+@keyframes orbit {
+  from {
+    transform: rotate(0deg) translateX(150px) rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg) translateX(150px) rotate(-360deg);
+  }
+}
+
+/* تأثيرات القمر الصناعي */
+.satellite-pulse {
+  position: relative;
+}
+
+.satellite-pulse::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(6, 182, 212, 0.4) 0%, rgba(6, 182, 212, 0) 70%);
+  animation: pulse-ring 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes pulse-ring {
+  0% {
+    transform: translate(-50%, -50%) scale(0.8);
+    opacity: 0.8;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1.5);
+    opacity: 0;
+  }
+}
