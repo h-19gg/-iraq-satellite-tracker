@@ -1,0 +1,21 @@
+@'
+{
+  "builds": [
+    {
+      "src": "api/app.py",
+      "use": "@vercel/python"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/api/(.*)",
+      "dest": "/api/app.py"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/frontend",
+      "continue": true
+    }
+  ]
+}
+'@ | Out-File -FilePath "vercel.json" -Encoding UTF8 -Force
