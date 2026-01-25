@@ -1,0 +1,16 @@
+﻿# منع Vercel من محاولة بناء المشروع
+frontend/node_modules
+frontend/package*.json
+frontend/*.config.js
+frontend/src
+frontend/public
+backend/__pycache__
+*.log
+.env
+.DS_Store
+Thumbs.db
+node_modules/
+__pycache__/
+package.json
+package-lock.json
+*.config.js
